@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kvízjáték</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+        <form action="ertekeles.html" method="get">
+        <div id="questions">
+            <p id="question1">A Naptól számítva hanyadik bolygó a Föld a naprendszerben ?</p>
+            <p id="question2" >Milyen irányba néz egy üstökös csóvája ?</p>
+            <p id="question3">Nevezd meg a teleszkóp 6-os számmal jelölt részét.</p>
+            <p id="question4">Mennyi a telihold látszólagos fényessége magnitúdóban megadva, egészre kerekítve ?</p>
+            <p id="question5">Mekkora a Heliopauza átlag átmérője ? (3 számjegy, AU (astronomical unit))</p>
+            <p id="question6">A felsorolt képletek közül, melyikek azok amik a Kepler törvényekből származtathatók ?</p>
+            <p id="question7">Számold ki, hogy, hány földi napig tart egy év a Vénuszon Kepler III. törvényének segítségével. A Vénusz 0,723 CSE távolságban kering a Nap körül, a föld 1 CSE távolságban kering a nap körül. A Földön egy év 365 napig tart. r<sub>1</sub>=1 T<sub>1</sub>=365 r<sub>2</sub>=0,723 T<sub>2</sub>= ? </p>
+            <p id="question8">Melyik Lorentz transzformáció ?</p>
+            <p id="question9">A Taurus űrkompja mikor fogja megtenni az első teljes keringését, ha 2020. 01. 03.-án állt kör alakú pályára a nap körül, ha feltételezzük, hogy pályája stabil és 800 millió kilóméter a sugarú.</p>
+            <p id="question10">1Mit tanulmányozott az első személy, aki jelentős csillagászati áttörést ért el a képen Paul Dirac és Hans Kramers között, de Einstein sorában ülő ember Nobel díjat érő felfedezésével ? </p>
+        </div>
+        <div id="answers">
+            <div id="answer1">
+                <input type="range" name="hanyadikBolygo" id="hanyadikBolygo" min="10" max="80" value="10" oninput="this.nextElementSibling.value = Math.ceil(Number(this.value)/10)">
+                <output>1</output>
+            </div>
+            <div id="answer2">
+                <table style="margin: auto;">
+                    <tr>
+                        <td>
+                            <div id="answer2.1">
+                                <input type="radio" name="ustokos" id="nap" value="nap">
+                                <label for="nap">Mindig a nap irányába néz.</label>
+                            </div> 
+                        </td>
+                        <td>
+                            <div id="answer2.2">
+                                <input type="radio" name="ustokos" id="napellen" value="napellen">
+                                <label for="nap">Mindig a nappal ellentétes irányába néz.</label>
+                            </div> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="answer2.3">
+                                <input type="radio" name="ustokos" id="iranyellen" value="iranyellen">
+                                <label for="iranyellen">Mindig a haladási irányával ellentétes irányba néz.</label>
+                            </div> 
+                        </td>
+                        <td>
+                            <div id="answer2.4">
+                                <input type="radio" name="ustokos" id="norules" value="norules">
+                                <label for="norules">Nincs rá szabályosság.</label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>    
+            </div>
+            <div id="answer3">
+                <img src="telescopeParts.jpg" alt="teleszkop reszei" style="width: 200px;">
+                <br>
+                <input type="text" name="telescopeParts" id="telescopeParts"  >
+            </div>
+            <div id="answer4">
+                <input type="number" name="magnitudo" id="magnitudo" min="-27" max="10"> 
+            </div>
+            <div id="answer5">
+                <input type="number" name="heliopauza" id="heliopauza" min="0" max="999">
+            </div>
+
+            <div id="answer6">
+                <table style="margin: auto;">
+                    <tr>
+                        <td>
+                            <div id="answer6.1">
+                                <input type="checkbox" name="keplerkeplet" id="kepler3" value="kepler3">
+                                <label for="kepler3"><img src="kepler3.png" alt="kepler3" style="width: 160px;"></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="answer6.2">
+                                <input type="checkbox" name="keplerkeplet" id="tavolsag_modulus" value="tavolsag_modulus">
+                                <label for="tavolsag_modulus"><img src="tavolsag_modulus.png" alt="tavolsag_modulus" style="width: 260px;"></label>
+                            </div> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="answer6.3">
+                                <input type="checkbox" name="keplerkeplet" id="kepler2" value="kepler2">
+                                <label for="kepler2"><img src="kepler2.png" alt="kepler2" style="width: 160px;;"></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="answer6.4">
+                                <input type="checkbox" name="keplerkeplet" id="kepler1" value="kepler1">
+                                <label for="kepler1"><img src="kepler1.png" alt="kepler1" style="width: 160px;"></label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>    
+            </div>
+
+            <div id="answer7">
+                <p>Egy év a Vénuszon:</p><input type="number" name="venusz" id="venusz" min="0" max="999"> <p>nap</p>
+            </div>
+            <div id="answer8">
+                <table style="margin: auto;">
+                    <tr>
+                        <td>
+                            <div id="answer8.1">
+                                <input type="radio" name="Lorentz" id="lorentz1" value="lorentz1">
+                                <label for="lorentz1"><img src="Képernyőkép 2026-01-21 200536.jpg" alt="lorentz3" style="width: 160px;"></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="answer8.2">
+                                <input type="radio" name="Lorentz" id="lorentz2" value="lorentz2">
+                                <label for="lorentz2"><img src="lo.jpg" alt="lorentz3" style="width: 260px;"></label>
+                            </div> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="answer8.3">
+                                <input type="radio" name="Lorentz" id="lorentz3" value="lorentz3">
+                                <label for="lorentz3"><img src="kepler2.png" alt="lorentz3" style="width: 160px;;"></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="answer8.4">
+                                <input type="radio" name="Lorentz" id="lorentzreal" value="lorentzreal">
+                                <label for="lorentzreal"><img src="Screenshot from 2026-01-21 21-12-16.png" alt="lorentzreal" style="width: 160px;"></label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>    
+            </div>
+            <div id="answer9">
+                <input type="date" name="taurus" id="taurus">
+            </div>
+            <div id="answer10">
+                <img src="konferencia.png" alt="konferencia" style="width: 600px; margin-top: 40px;">
+                <br>
+                <input type="text" name="konferencia" id="konferencia" >
+                <input type="submit" value="submit">
+            </div>
+        </div>
+        </form>
+    </div>  
+    <div id="buttons">
+        <div onclick="changeTask(1)"><img src="csv2.png" alt="csillagvizsgalo" title="1. kérdés" id="button1"></div>
+        <div onclick="changeTask(2)"><img src="csv2.png" alt="csillagvizsgalo" title="2. kérdés" id="button2"></div>
+        <div onclick="changeTask(3)"><img src="csv2.png" alt="csillagvizsgalo" title="3. kérdés" id="button3"></div>
+        <div onclick="changeTask(4)"><img src="csv2.png" alt="csillagvizsgalo" title="4. kérdés" id="button4"></div>
+        <div onclick="changeTask(5)"><img src="csv2.png" alt="csillagvizsgalo" title="5. kérdés" id="button5"></div>
+        <div onclick="changeTask(6)"><img src="csv2.png" alt="csillagvizsgalo" title="6. kérdés" id="button6"></div>
+        <div onclick="changeTask(7)"><img src="csv2.png" alt="csillagvizsgalo" title="7. kérdés" id="button7"></div>
+        <div onclick="changeTask(8)"><img src="csv2.png" alt="csillagvizsgalo" title="8. kérdés" id="button8"></div>
+        <div onclick="changeTask(9)"><img src="csv2.png" alt="csillagvizsgalo" title="9. kérdés" id="button9"></div>
+        <div onclick="changeTask(10)"><img src="csv2.png" alt="csillagvizsgalo" title="10. kérdés" id="button10"></div>
+    </div>
+</body>
+<script>
+    function changeTask(tToChangeTo) {
+        changeQuestion(tToChangeTo);
+        changeAnswers(tToChangeTo);
+        changeButton(tToChangeTo);
+    }
+
+    function changeQuestion(qToChangeTo) {
+        //Összes kérdés elrejtése
+        for (let i = 1; i < 11; i++) {
+            document.getElementById("question" + i).style.display = "none";
+        }
+        //Kívánt kérdés megjelenítése
+        document.getElementById("question" + qToChangeTo).style.display = "initial";
+    }
+
+    function changeAnswers(aToChangeTo) {
+        //Összes válaszlehetőség elrejtése
+        for (let i = 1; i < 11; i++) {
+            document.getElementById("answer" + i).style.display = "none";
+        }
+        document.getElementById("answer" + aToChangeTo).style.display = "inherit";
+    }
+
+    function changeButton(bToChangeTo) {
+        for (let i = 1; i < 11; i++) {
+            document.getElementById("button" + i).style.filter = "brightness(50%)";
+        }
+        document.getElementById("button" + bToChangeTo).style.filter = "brightness(100%)";
+    }
+</script>
+</html>

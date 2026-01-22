@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eredmény</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="eredmeny">
+        pontszámod: 1
+    </h1>
+</body>
+<script>
+    let valaszok = window.location.search.split("?")[1].split("&");
+    let helyesek = new Array(15);
+    let j = new Set();
+    let k;
+    for (let i = 0; i < valaszok.length; i++) {
+        let kerdes = valaszok[i].split("=")[0];
+        let valasz = valaszok[i].split("=")[1];
+
+        if (kerdes == "hanyadikBolygo") {
+            helyesek[i] = (Math.ceil(Number(valasz)/10) == "3")
+        }
+        else if (kerdes == "ustokos") {
+            helyesek[i] = (valasz == "napellen")
+        }
+        else if (kerdes == "telescopeParts") {
+            helyesek[i] = (valasz.toLowerCase() == "okulár" || valasz.toLowerCase() == "szemlencse")
+        }
+        else if (kerdes == "magnitudo") {
+            helyesek[i] = (valasz == "-13")
+        }
+        else if (kerdes == "heliopauza") {
+            helyesek[i] = (valasz == "125")
+        }
+        else if (kerdes == "keplerkeplet") {
+            if (typeof k == "undefined") {
+                k = i;
+            }
+            j.add(valasz)
+            console.log(j);
+            helyesek[k] = (j.has("kepler1") && j.has("kepler2") && j.has("kepler3") && !(j.has("tavolsag_modolus")));
+        }
+        else if (kerdes == "venusz") {
+            helyesek[i] = (valasz == "225");
+        }
+        else if (kerdes == "Lorentz") {
+            helyesek[i] = (valasz == "lorentzreal");
+        }
+        else if (kerdes == "taurus") {
+            helyesek[i] = (valasz == "2032-05-14" || valasz == "2032-05-15" || valasz == "2032-05-16" || valasz == "2032-05-17" || valasz == "2032-05-18");
+        }
+        else if (kerdes == "konferencia") {
+            helyesek[i] = (valasz.toLowerCase() == "napfolt" || valasz.toLowerCase() == "napfoltok");
+        }
+        else {
+            helyesek[i] = false;
+        }
+    } 
+    
+    let pontszam = 0;
+    for (let i = 0; i < helyesek.length; i++) {
+        if (helyesek[i]) {
+            pontszam += 1
+        }
+    }
+
+    document.getElementById("eredmeny").innerHTML = "<h1>" + pontszam + "</h1>";
+</script>
+</html>
+
